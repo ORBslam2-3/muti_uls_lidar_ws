@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<robot name="arm" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find mbot_description)/urdf/xacro/gazebo/mbot_base_gazebo.xacro" />
+    <xacro:include filename="$(find mbot_description)/urdf/xacro/sensors/ultrasonic_gazebo.xacro" />
+
+    <xacro:property name="uls_offset_x" value="0.20" />
+    <xacro:property name="uls_offset_y" value="0" />
+    <xacro:property name="uls_offset_z" value="0.5" />
+
+    <!--  center lidar -->
+    <joint name="uls_center_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_center_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_center"/>      
+    <!--  top lidar -->
+    <joint name="uls_top_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z+0.05}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_top_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_top"/>
+    <!--  down lidar -->
+    <joint name="uls_down_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z-0.05}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_down_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_down"/>      
+    <!--  left lidar -->
+    <joint name="uls_left_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-0.05} ${uls_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_left_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_left"/>
+    <!--  right lidar -->
+    <joint name="uls_right_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+0.05} ${uls_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_right_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_right"/>
+
+    <xacro:mbot_base_gazebo/>
+
+</robot>

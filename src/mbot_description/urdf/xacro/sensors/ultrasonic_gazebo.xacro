@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="uls">
+
+    <xacro:macro name="ulslidar" params="prefix">
+        <!-- Create laser reference frame -->
+        <link name="${prefix}_link">
+            <inertial>
+                <mass value="0.1" />
+                <origin xyz="0 0 0" />
+                <inertia ixx="0.01" ixy="0.0" ixz="0.0"
+                         iyy="0.01" iyz="0.0"
+                         izz="0.01" />
+            </inertial>
+            <visual>
+                <origin xyz=" 0 0 0 " rpy="0 1.57 0" />
+                <geometry>
+                    <cylinder length="0.005" radius="0.01"/>
+                </geometry>
+                <material name="black"/>
+            </visual>
+            <collision>
+                <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+                <geometry>
+                    <cylinder length="0.005" radius="0.01"/>
+                </geometry>
+            </collision>
+        </link>
+        <gazebo reference="${prefix}_link">
+            <material>Gazebo/Black</material>
+        </gazebo>
+
+        <gazebo reference="${prefix}_link">
+            <sensor type="ray" name="ultrasonic_sensor">
+                <pose>0 0 0 0 0 0</pose>
+                <visualize>true</visualize>
+                <update_rate>5</update_rate>
+                <ray>
+                    <scan>
+                      <horizontal>
+                      <!-- 水平扫描的点数 -->
+                        <samples>20</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.785</min_angle>
+                        <max_angle>0.785</max_angle>
+                      </horizontal>
+                      <!-- 垂直方向扫描的点数 -->
+                      <vertical>
+                        <samples>10</samples>
+                        <resolution>1</resolution>
+                        <min_angle>-0.25</min_angle>
+                        <max_angle>0.25</max_angle>
+                      </vertical>
+                    </scan>
+                    <range>
+                      <min>0.15</min>
+                      <max>5</max>
+                      <resolution>0.02</resolution>
+                    </range>
+                    <noise>
+                      <type>gaussian</type>
+                      <mean>0.0</mean>
+                      <stddev>0.01</stddev>
+                    </noise>
+                </ray>
+                <plugin name="ultrasonic_sensor_controller" filename="libgazebo_ros_range.so">
+                    <gaussianNoise>0.005</gaussianNoise>
+                    <alwaysOn>true</alwaysOn>
+                    <updateRate>50</updateRate>
+                    <topicName>/${prefix}_range</topicName>
+                    <!-- frame名称，填写link名称即可 -->
+                    <frame_name>${prefix}_link</frame_name>
+                    <!-- 射线类型，这里要写ultrasound，注意和雷达区分 -->
+                    <radiation_type>ultrasound</radiation_type>
+                    <fov>0.5</fov>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+    </xacro:macro>
+</robot>
