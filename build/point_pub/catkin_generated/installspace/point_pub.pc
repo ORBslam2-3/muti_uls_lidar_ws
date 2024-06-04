@@ -1,0 +1,8 @@
+prefix=/home/wxd/muti_uls_lidar_ws/install
+
+Name: point_pub
+Description: Description of point_pub
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: roscpp sensor_msgs std_msgs pcl_ros pcl_conversions visualization_msgs

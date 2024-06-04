@@ -1,0 +1,8 @@
+prefix=/home/wxd/muti_uls_lidar_ws/devel
+
+Name: mbot_bringup
+Description: Description of mbot_bringup
+Version: 0.0.0
+Cflags: -I/home/wxd/muti_uls_lidar_ws/src/mbot_bringup/include
+Libs: -L${prefix}/lib 
+Requires: 

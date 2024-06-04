@@ -8,41 +8,185 @@
     <xacro:property name="uls_offset_y" value="0" />
     <xacro:property name="uls_offset_z" value="0.5" />
 
-    <!--  center lidar -->
-    <joint name="uls_center_joint" type="fixed">
+    <!-- 1行 -->
+    <joint name="uls_11_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-2*0.1} ${uls_offset_z+2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_11_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_11"/>      
+
+    <joint name="uls_12_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-0.1} ${uls_offset_z+2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_12_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_12"/>
+
+    <joint name="uls_13_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z+2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_13_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_13"/>      
+
+    <joint name="uls_14_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+0.1} ${uls_offset_z+2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_14_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_14"/>
+    
+    <joint name="uls_15_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+2*0.1} ${uls_offset_z+2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_15_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_15"/>
+
+    <!-- 2行 -->
+        <joint name="uls_21_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-2*0.1} ${uls_offset_z+0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_21_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_21"/>      
+
+    <joint name="uls_22_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-0.1} ${uls_offset_z+0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_22_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_22"/>
+
+    <joint name="uls_23_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z+0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_23_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_23"/>      
+
+    <joint name="uls_24_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+0.1} ${uls_offset_z+0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_24_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_24"/>
+    
+    <joint name="uls_25_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+2*0.1} ${uls_offset_z+0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_25_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_25"/>
+
+    <!-- 3行 -->
+        <joint name="uls_31_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-2*0.1} ${uls_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_31_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_31"/>      
+
+    <joint name="uls_32_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-0.1} ${uls_offset_z}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_32_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_32"/>
+
+    <joint name="uls_33_joint" type="fixed">
         <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z}" rpy="0 0 0" />
         <parent link="base_link"/>
-        <child link="uls_center_link"/>
+        <child link="uls_33_link"/>
     </joint>
-    <xacro:ulslidar prefix="uls_center"/>      
-    <!--  top lidar -->
-    <joint name="uls_top_joint" type="fixed">
-        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z+0.05}" rpy="0 0 0" />
+    <xacro:ulslidar prefix="uls_33"/>      
+
+    <joint name="uls_34_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+0.1} ${uls_offset_z}" rpy="0 0 0" />
         <parent link="base_link"/>
-        <child link="uls_top_link"/>
+        <child link="uls_34_link"/>
     </joint>
-    <xacro:ulslidar prefix="uls_top"/>
-    <!--  down lidar -->
-    <joint name="uls_down_joint" type="fixed">
-        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z-0.05}" rpy="0 0 0" />
+    <xacro:ulslidar prefix="uls_34"/>
+    
+    <joint name="uls_35_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+2*0.1} ${uls_offset_z}" rpy="0 0 0" />
         <parent link="base_link"/>
-        <child link="uls_down_link"/>
+        <child link="uls_35_link"/>
     </joint>
-    <xacro:ulslidar prefix="uls_down"/>      
-    <!--  left lidar -->
-    <joint name="uls_left_joint" type="fixed">
-        <origin xyz="${uls_offset_x} ${uls_offset_y-0.05} ${uls_offset_z}" rpy="0 0 0" />
+    <xacro:ulslidar prefix="uls_35"/>
+
+    <!-- 4行 -->
+        <joint name="uls_41_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-2*0.1} ${uls_offset_z-0.1}" rpy="0 0 0" />
         <parent link="base_link"/>
-        <child link="uls_left_link"/>
+        <child link="uls_41_link"/>
     </joint>
-    <xacro:ulslidar prefix="uls_left"/>
-    <!--  right lidar -->
-    <joint name="uls_right_joint" type="fixed">
-        <origin xyz="${uls_offset_x} ${uls_offset_y+0.05} ${uls_offset_z}" rpy="0 0 0" />
+    <xacro:ulslidar prefix="uls_41"/>      
+
+    <joint name="uls_42_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-0.1} ${uls_offset_z-0.1}" rpy="0 0 0" />
         <parent link="base_link"/>
-        <child link="uls_right_link"/>
+        <child link="uls_42_link"/>
     </joint>
-    <xacro:ulslidar prefix="uls_right"/>
+    <xacro:ulslidar prefix="uls_42"/>
+
+    <joint name="uls_43_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z-0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_43_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_43"/>      
+
+    <joint name="uls_44_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+0.1} ${uls_offset_z-0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_44_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_44"/>
+    
+    <joint name="uls_45_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+2*0.1} ${uls_offset_z-0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_45_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_45"/>
+
+    <!-- 5行 -->
+        <joint name="uls_51_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-2*0.1} ${uls_offset_z-2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_51_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_51"/>      
+
+    <joint name="uls_52_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y-0.1} ${uls_offset_z-2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_52_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_52"/>
+
+    <joint name="uls_53_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y} ${uls_offset_z-2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_53_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_53"/>      
+
+    <joint name="uls_54_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+0.1} ${uls_offset_z-2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_54_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_54"/>
+    
+    <joint name="uls_55_joint" type="fixed">
+        <origin xyz="${uls_offset_x} ${uls_offset_y+2*0.1} ${uls_offset_z-2*0.1}" rpy="0 0 0" />
+        <parent link="base_link"/>
+        <child link="uls_55_link"/>
+    </joint>
+    <xacro:ulslidar prefix="uls_55"/>
 
     <xacro:mbot_base_gazebo/>
 
