@@ -1,2 +1,0 @@
-ar_track_alvar/ar_track_alvar:ar_track_alvar/ar_track_alvar_msgs:arbotix_ros/arbotix:arbotix_ros/arbotix_controllers:arbotix_ros/arbotix_firmware:arbotix_ros/arbotix_msgs:arbotix_ros/arbotix_python:arbotix_ros/arbotix_sensors:learning_tf:mbot_bringup:mbot_description:mbot_gazebo:mbot_navigation:mbot_teleop:point_pub:robot_vision
--DCATKIN_DEVEL_PREFIX=/home/wxd/muti_uls_lidar_ws/devel -DCMAKE_INSTALL_PREFIX=/home/wxd/muti_uls_lidar_ws/install -G Unix Makefiles
